@@ -1,4 +1,4 @@
-pip install flask
-pip install openai
-pip install spacy
-pip install flask_cors
+Flask==2.0.1
+openai==0.27.0
+spacy==3.0.12
+Flask-CORS==4.0.0
