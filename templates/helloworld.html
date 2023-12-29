@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(90deg, rgb(105, 8, 154) 0%, rgba(141, 39, 235, 1) 35%, rgb(170, 13, 237) 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #111211;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #223d23;
+        }
+
+        /* Style for the pop-up message */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .submit-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file" accept=".txt, .pdf, .doc, .docx">
+        <br>
+        <button type="button" onclick="uploadAndSubmit()">Upload File</button>
+        <button type="submit" style="display: none;">Submit</button>
+        <br>
+        <!-- Pop-up message -->
+        <div class="popup" id="popup">
+            Upload successful!
+        </div>
+
+    </form>
+
+    <script>
+        // JavaScript function to show the pop-up
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 2000); // Hide the pop-up after 2000 milliseconds (2 seconds)
+        }
+
+        // JavaScript function to submit the form after uploading
+        function uploadAndSubmit() {
+            showPopup();
+            document.getElementById("uploadForm").submit();
+        }
+
+        // JavaScript function to submit the form directly
+        function submitForm() {
+            document.getElementById("uploadForm").submit();
+        }
+    </script>
+
+</body>
+</html>

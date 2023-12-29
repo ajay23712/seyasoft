@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCX Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d0e4f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        pre {
+            font-size: 18px;
+            white-space: pre-wrap;
+            background-color: #d0e4f5;
+        }
+        </style>
+</head>
+<body>
+    <h2>DOCX Viewer</h2>
+    <pre>{{ docx_text }}</pre>
+    <button onclick="closeViewer()">Close</button>
+
+    <script>
+        function closeViewer() {
+            if (window.parent && window.parent.closeDOCXViewer) {
+                window.parent.closeDOCXViewer();  // Call the function in the parent window to close the viewer
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: white;
+            /* WhatsApp-like background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #0a0a0a;
+            /* WhatsApp-like header color */
+            margin-bottom: 10px;
+            text-shadow: rgb(21, 21, 21);
+        }
+
+        #logo-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .logo::before,
+        .logo::after {
+            content: ' ';
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            background-color: #060505; /* Logo color */
+        }
+
+        .logo::before {
+            top: 0;
+        }
+
+        .logo::after {
+            bottom: 0;
+        }
+
+        .logo span {
+            position: absolute;
+            width: 100%;
+            height: 60%;
+            background-color: #030303; /* Logo color */
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .logo span::before,
+        .logo span::after {
+            content: ' ';
+            position: absolute;
+            width: 20%;
+            height: 100%;
+            background-color: #040404; /* Logo color */
+        }
+
+        .logo span::before {
+            left: 0;
+        }
+
+        .logo span::after {
+            right: 0;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #upload-form {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 700px; /* Increase the max-width */
+            width: 100%; /* Set width to 100% */
+            text-align: left;
+            overflow-y: auto;
+            max-height: 500px;
+            /* Increased max height for better scrolling */
+        }
+
+        label {
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin: 8px;
+            max-width: 80%;
+        }
+
+        #file {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            resize: none;
+            /* Disable textarea resizing */
+        }
+
+        button {
+            background-color: #0c0c0c;
+            /* WhatsApp-like green color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 8px 12px;
+        }
+
+        button:hover {
+            background-color: #13514a;
+            /* Darker green on hover */
+        }
+
+        /* Include JavaScript */
+        #response-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: left;
+            overflow-y: auto;
+            max-height: 500px;
+            /* Increased max height for better scrolling */
+            padding: 8px 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Upload File</h1>
+
+    <!-- Logo container -->
+    <div id="logo-container" class="logo">
+        <span></span>
+    </div>
+
+    <form id="upload-form" action="/upload-document" method="post" enctype="multipart/form-data">
+        <label for="file">Upload Document:</label>
+        <input type="file" name="file" id="file" accept=".txt">
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Display area for responses -->
+    <div id="response-container"></div>
+
+    <!-- Include JavaScript -->
+    <script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const uploadForm = document.getElementById('upload-form');
+        const responseContainer = document.getElementById('response-container');
+
+        if (!uploadForm || !responseContainer) {
+            console.error('Error: Form or response container not found.');
+        }
+
+        uploadForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(uploadForm);
+
+            // Perform AJAX request to the server
+            fetch('/upload-document', {
+                method: 'POST',
+                body: formData,
+            })
+
+
+                    // Redirect to the Ask a Question page on the server side
+                    window.location.href = '/ask';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Display an error message in the container
+                    responseContainer.innerHTML = `<p>Error: ${error.message}</p>`;
+                });
+        });
+    });
+</script>
+
+</body>
+
+</html>

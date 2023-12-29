@@ -1,0 +1,71 @@
+Venkateshwaran P
+Business Analyst
+
+
+Summary
+
+Over 2.5 years of experience in industry domain including healthcare, e-commerce, banking. EXperienced in software development life cycle like agile and waterfall.
+Worked on product testing - end to end testing, smoke etc.
+Skilled in business process analysis (use case, user experience design, story board, wireframes, user profiles and user stories)
+EXtensive hands-on experience in eliciting, defining, documenting, business, functional and non functional requirements, decomposing high level information into details and in critically evaluating information gathered from multiple resource.
+Effective communicator with exceptional interpersonal skills.
+
+
+Technical skills
+
+Domain - e-commerce, Social media, Healthcare, Banking.
+Functional skills - Documentation, Requirement analysis, Design strategy, Competitor analysis, User persona, User flow, Information Architecture, Usability Testing.
+Techniques - UX research, Building wireframes, Prototype, Product testing, Gap analysis, Document analysis, Business analysis.
+Methodologies - Agile/Scrum, Waterfall.
+Languages - Html, Css, Java, Sql, C.
+Design tools - Figma, Adobe XD, Balsamiq, Photoshop, Canva.
+Others tools - Jira, Microsoft office.
+
+
+Personal project
+
+First Touch - UI UX Design
+A one stop solution to baby care information and baby care products which has its community platform to have an interaction among parents and also online doctor consultation.
+Behnace:	https://www.behance.net/VenkateshwaranP
+
+
+Education
+
+ 
+B.E computer science and engineering - Alpha College Of Engineering
+HSC - AVM Rajeswari
+ 
+2017-2021
+2015 - 2017
+ 
+Experience
+
+Gavs technologies  - software engineer	2021 - 2023
+Provider of information technology (IT) and digitization services intended for the healthcare, manufacturing, financial and publishing industries. The company specializes in artificial intelligence, automation, blockchain as well a predictive technology and provides a broad range of services such as cyber security assessment, data privacy management, data center consolidation and migration, cloud advisory as well as product consulting, enabling clients to avail of required technical and infrastructure support to expedite digital transformation.
+Responsibilities
+
+EXtensively worked in agile frame work throughout all the phases of software development life cycle(SDLC)
+Performed requirement gathering using both formal and informal sessions through interviews, netmeeting, questionnaire etc.
+Sprint planning sessions with CSM and stakeholders. Conducting brainstorming session of the project and its goals.
+Constantly coordinated with developer, tester, project manager and stake holder for better outcome.
+Assessed and documented the flaws in the existing system and made clear recommendations and solution of business process for the future to perform gap analysis.
+Addressed the found bugs in jira and reviewed them.
+
+
+ 
+Byte Blanket  - Business analyst
+ 
+2020 - 2021
+ 
+
+Byte Blanket Software Solutions is a digital technology, research and solutions company based in Dubai. Established in 2019 as a subsidiary of Smile Turtle Group(STG), their focus is on providing expert services in the areas of digital peripheral solutions for core banking, e-commerce application development, social media application development, enterprise software development and research and consulting for companies worldwide. Their current team of 230 is growing exponentially as they create new waves of disruptive solutions and innovation in core banking and digital technology.
+
+
+
+
+Who we are
+At Seyasoft, we are not just a technology company, we are innovators, problem solvers, and architects of digital transformation. Established with a vision to revolutionize the IT landscape, Seyasoft stands at the forefront of cutting-edge technology solutions and software development services. Our Vision is Empowering businesses through seamless integration of technology, driving innovation, and enhancing user experiences.
+
+At Seyasoft, we believe that successful partnerships are built on collaboration, transparency, and a shared vision for the future. Our engagement approach is meticulously crafted to ensure that every interaction with our clients is not just a transaction, but a journey toward mutual growth and success.
+
+To Understand your needs we begin by listening. Understanding your challenges, goals, and aspirations is fundamental to our approach. Our dedicated team of experts engages in detailed discussions, conducts in-depth analyses, and collaborates closely with your stakeholders to gain a comprehensive understanding of your requirements.

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+       body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #1f1f1f;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #3498db, #e74c3c);
+    -webkit-background-clip: text;
+    background-clip: text; /* Standard property */
+    color: transparent;
+}
+
+/* Compatibility for different browser vendors */
+@-moz-document url-prefix() {
+    .logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #3498db, #e74c3c);
+    background-clip: text; /* Standard property */
+    color: transparent;
+}
+}
+
+.login-container {
+    background-color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #fff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #bbb;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444;
+    color: #fff;
+}
+
+.form-group button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #2980b9;
+}
+
+.link-text {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.link-text:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        Welcome to <span style="background: linear-gradient(45deg, #e74c3c, #3498db); color: transparent;">iambatmanpdf</span>
+    </div>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+
+        </form>
+
+        <p>Don't have an account? <a class="link-text" href="/register">Register</a></p>
+    </div>
+
+</body>
+
+</html>

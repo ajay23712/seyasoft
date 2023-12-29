@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #d0e4f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h2>PDF Viewer</h2>
+    <p>{{ pdf_text }}</p>
+    <button onclick="closeViewer()">Close</button>
+    <script>
+        function closeViewer() {
+            window.parent.closePDFViewer();  // Call the function in the parent window to close the viewer
+        }
+    </script>
+</body>
+</html>

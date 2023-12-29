@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Web App</title>
+
+    <!-- Add some basic CSS styles for better presentation -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(90deg, rgb(105, 8, 154) 0%, rgba(141, 39, 235, 1) 35%, rgb(170, 13, 237) 100%); /* WhatsApp-like background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #0a0a0a; /* WhatsApp-like header color */
+            margin-bottom: 10px;
+            text-shadow: white;
+        }
+
+        #chatContainer {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 500px; /* Increased max height for better scrolling */
+}
+
+.message {
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin: 8px;
+    max-width: 80%;
+}
+
+.user {
+    background-color: #dcf8c6; /* WhatsApp-like user chat bubble color */
+    align-self: flex-end;
+}
+
+.bot {
+    background-color: #eaeaea; /* WhatsApp-like bot chat bubble color */
+    align-self: flex-start;
+}
+
+#userInput {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: none; /* Disable textarea resizing */
+}
+
+#searchButton {
+    background-color: #0c0c0c; /* WhatsApp-like green color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 8px 12px;
+}
+
+#searchButton:hover {
+    background-color: #13514a; /* Darker green on hover */
+}
+
+/* Typing animation effect */
+.typing {
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 1s steps(15) infinite;
+    margin: 8px 12px;
+    color: #777;
+    font-style: italic;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+    <h1>ASK ANY QUESTIONS....</h1>
+
+    <!-- Chat Container for displaying conversation -->
+    <div id="chatContainer"></div>
+
+    <!-- User input field and Search button -->
+    <div>
+        <textarea id="userInput" placeholder="Type your message..." aria-label="Ask ChatGPT"></textarea>
+        <button id="searchButton" onclick="askChatGPT()">Send</button>
+    </div>
+
+    <!-- JavaScript code to interact with the backend -->
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const userInput = document.getElementById('userInput');
+
+        // Function to make a request to the backend when the user presses Enter or clicks the "Send" button
+        function askChatGPT() {
+            const userMessage = userInput.value.trim(); // Remove leading/trailing whitespaces
+
+            if (userMessage === "") {
+                return; // Do not send empty messages
+            }
+
+            // Display user message in the chat container
+            displayMessage('user', userMessage);
+
+            // Clear the input field
+            userInput.value = '';
+
+            // Display typing effect for the bot
+            displayTypingEffect();
+
+            // Make a request to OpenAI for a response
+            getChatGPTResponse(userMessage)
+                .then(response => {
+                    // Remove typing effect before displaying the actual response
+                    removeTypingEffect();
+
+                    // Display the ChatGPT response in the chat container
+                    displayMessage('bot', response);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // If there's an error, remove typing effect
+                    removeTypingEffect();
+                });
+        }
+
+        // Function to make a request to OpenAI for a response
+        async function getChatGPTResponse(userMessage) {
+            const response = await fetch('/ask-chatgpt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ query: userMessage }),
+            });
+
+            const data = await response.json();
+            return data.response;
+        }
+
+        // Function to display messages in the chat container
+        function displayMessage(sender, message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = message;
+            chatContainer.appendChild(messageDiv);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Function to display typing effect for the bot
+        function displayTypingEffect() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot typing';
+            typingDiv.textContent = 'Bot is typing...';
+            chatContainer.appendChild(typingDiv);
+
+            // Scroll to the bottom of the chat container
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Function to remove typing effect
+        function removeTypingEffect() {
+            const typingDiv = document.querySelector('.typing');
+            if (typingDiv) {
+                typingDiv.remove();
+            }
+        }
+
+        // Function to make a request to the backend when the user presses Enter
+        userInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); // Prevent new line on Enter
+                askChatGPT();
+            }
+        });
+    </script>
+</body>
+
+</html>
