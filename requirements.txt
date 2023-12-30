@@ -1,6 +1,6 @@
 Flask==2.0.1
 openai==0.27.0
-spacy==
-Flask-CORS==
+spacy==3.0.12
+Flask-CORS==4.0.0
 
 
